@@ -16,11 +16,15 @@ const client = new Client({
 });
 
 client.on('qr', qr => {
+  console.log('Scan this QR code with your phone:', qr);
   qrcode.generate(qr, {small: true});
 });
 
 client.on('ready', () => {
+  
+ 
   console.log('Client is ready!');
+  
 });
 
 app.post('/api/run-command', async (req, res) => {
